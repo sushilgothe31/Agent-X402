@@ -1,0 +1,6 @@
+{
+  "name": "x402 AI Starter Kit",
+  "description": "Agent X402: Production-Quality Solana AI Payment System. Autonomous AI agents discovering services, paying via Solana x402, and consuming APIs programmatically.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

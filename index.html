@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var _fetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return _fetch;
+            },
+            set: function(val) {
+              _fetch = val;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          // Fallback if defineProperty fails
+        }
+
+        // Suppress external browser extension injection errors from crashing the app
+        window.addEventListener('error', function(event) {
+          if (
+            (event.filename && event.filename.indexOf('chrome-extension://') !== -1) ||
+            (event.message && event.message.indexOf('Cannot set property fetch') !== -1)
+          ) {
+            event.preventDefault();
+            event.stopImmediatePropagation && event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
+    <title>Agent X402 — Autonomous Solana AI Payment Infrastructure</title>
+    <meta name="description" content="Agent X402: Machines can't pay each other. Until now. Autonomous AI agents discovering services, paying via Solana x402, and consuming APIs programmatically." />
+    <meta property="og:title" content="Agent X402 — Autonomous Solana AI Payment Infrastructure" />
+    <meta property="og:description" content="Machines can't pay each other. Until now. AI agents discover, authorize, and settle API payments autonomously on Solana." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
